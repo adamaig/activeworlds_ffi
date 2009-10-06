@@ -1,0 +1,9 @@
+--- 
+:world_group_one: &world_group_one
+- alpha
+- beta
+- gamma
+
+:world_group_two: &world_group_two
+- xi
+- zeta

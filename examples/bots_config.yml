@@ -1,0 +1,26 @@
+---
+  universe_base: &universe_base
+    :host: universe.server.com
+    :bot_owner_id: 1
+    :login_name: administrator
+    :password: administrator_privilege_password
+    :global_bot: true # true or false
+    
+  universe42: &universe42
+    <<: *universe_base
+    :port: 0 # set to your target universe port
+    
+  tracker: 
+    <<: *universe42
+    :application_name: tracker
+    :login_name: tracker
+    :world_groups: [:world_group_one, :world_group_two]
+    :max_size: 300 * 1024**2 # sets logs to rotate at 300MB
+    :rotate_count: 1
+    :log_level: 1 # 0 = Logger::DEBUG, 1 = Logger::INFO, look at Logger documentation for more information
+    
+  map:
+    <<: *universe42
+    :application_name: map
+    :login_name: map
+    :world_groups: [:world_group_two]

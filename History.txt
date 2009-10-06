@@ -1,0 +1,4 @@
+
+== 4.2.77.1 (2009-08-08)
+
+* This is the initial version of the Active Worlds version 4.2 build 77 ffi based wrapper.
