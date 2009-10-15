@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.description = %q{Ruby FFI based bindings for the ActiveWorlds.com SDK.}
   s.email = %q{adamaig@gmail.com}
   s.extra_rdoc_files = ["README.txt", "LICENSE"]
-  s.files = Dir['lib/**/*.rb'] + Dir['examples/**/*'] + ["History.txt", "README.txt", "LICENSE", "PostInstall.txt"]
+  s.files = Dir['lib/**/*.rb'] + Dir['examples/**/*'] + ["History.txt", "README.txt", "LICENSE", "PostInstall.txt", "activeworlds_ffi.gemspec"]
   s.has_rdoc = true
   s.homepage = %q{http://github.com/adamaig/activeworlds-ffi}
   s.rdoc_options = ["--charset=UTF-8", "--title='ActiveWorlds FFI -- ActiveWorlds SDK applications in Ruby'"]
