@@ -1,0 +1,18 @@
+= activeworlds-ffi
+
+== Description
+
+A Ruby/FFI wrapper for the Active Worlds, Inc. SDK providing for the rapid
+creation and deployment of "bots".
+
+== Requirements
+
+You must have the Active Worlds SDK (currently only the linux version, build
+77), and the ffi gem version 0.3.5 installed. The SDK must be on your
+LD_LIBRARY_PATH. This is a 32-bit only library because of the AW SDK, and so
+for linking purposes you must have 32-bit versions of all libraries used, in
+particular libstdc++.so.6 (if you have a different c++ lib, change the name in
+lib/activeworlds_ffi.rb).
+
+Also, you may need to modify your SELinux settings in order for the aw_sdk 
+library to be loaded.

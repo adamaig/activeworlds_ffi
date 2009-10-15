@@ -28,8 +28,8 @@ def handle_avatar_add
   puts(s)
 end
 
-if ARGV.nil? || ARGV.size < 5
-  puts("Usage: hello.rb server port citizen_id privilege_password world")
+if ARGV.nil? || ARGV.size < 3
+  puts("Usage: hello.rb citizen_id privilege_password world")
   exit(1)
 end
 
@@ -47,15 +47,15 @@ AVATAR_ADD_HANDLER = Proc.new { handle_avatar_add }
 aw_event_set(AW_EVENT_AVATAR_ADD, AVATAR_ADD_HANDLER)
   
 # create bot instance 
-rc = aw_create(ARGV[0], ARGV[1].to_i, nil);
+rc = aw_create("atlantis.activeworlds.com", 5870, nil);
 if rc != RC_SUCCESS
   printf "Unable to create bot instance (reason %d)\n", rc
   exit 1
 end
   
 # log bot into the universe 
-aw_int_set AW_LOGIN_OWNER, ARGV[2].to_i
-aw_string_set AW_LOGIN_PRIVILEGE_PASSWORD, ARGV[3]
+aw_int_set AW_LOGIN_OWNER, ARGV[0].to_i
+aw_string_set AW_LOGIN_PRIVILEGE_PASSWORD, ARGV[1]
 aw_string_set AW_LOGIN_APPLICATION, "SDK Sample Application #1"
 aw_string_set AW_LOGIN_NAME, "GreeterBot"
 rc = aw_login
@@ -65,7 +65,7 @@ if rc != RC_SUCCESS
 end
   
 # log bot into the world named on the command line 
-rc = aw_enter (ARGV[4]);
+rc = aw_enter (ARGV[2]);
 if (rc != RC_SUCCESS)
   printf("Unable to enter world (reason %d)\n", rc)
   exit(1)
