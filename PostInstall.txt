@@ -16,3 +16,6 @@ lib/activeworlds_ffi.rb).
 
 Also, you may need to modify your SELinux settings in order for the aw_sdk 
 library to be loaded.
+
+Check the gem install directory for examples of bots built with this library.
+
