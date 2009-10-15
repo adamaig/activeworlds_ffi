@@ -18,6 +18,6 @@ Gem::Specification.new do |s|
   s.rubyforge_project = %q{activeworlds_ffi}
   s.rubygems_version = %q{1.3.5}
   s.summary = %q{Ruby FFI based bindings for the ActiveWorlds.com SDK, and some support files for making applications simple.}
-  s.post_install_message = %q{PostInstall.txt}
+  s.post_install_message = `cat PostInstall.txt`
   s.add_dependency('ffi', "= 0.3.5")
 end
