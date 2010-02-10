@@ -11,9 +11,9 @@ module FFI
           result << enum_hash_line(item[0], item[1])
         end + @indent_str + "}\n"
         # new ffi 0.5+ style enums
-        enum_syms = @items.sort { |i1, i2| i1[1] <=> i2[1] }.inject("#{@indent_str}enum :#{@symname}, [\n") do |result, item|
-          result << "#{@indent_str}:#{item[0]}, #{item[1]}\n"
-        end + @indent_str + "]\n"
+        enum_syms = @items.sort { |i1, i2| i1[1] <=> i2[1] }.inject("#{@indent_str}enum :#{@symname}, [") do |result, item|
+          result << "#{@indent_str}:#{item[0]}, #{item[1]},\n"
+        end.chop!.chop! + @indent_str + "]\n"
         return to_constants + "\n#{@indent_str}" + enum_hsh + enum_syms
       end
       def enum_hash_line(name, value)
