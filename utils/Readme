@@ -1,0 +1,10 @@
+This directory holds some of the tools used to create this gem. In particular
+use the ffi-swig-generator gem to run 
+
+rake ffi:generate
+
+in order to generate the C wrapper. This is much easier/maintainable than hand 
+editing things.
+
+This requires unpacking the aw_sdk build 84 package into this directory (ie,
+Aw.h must be in this same directory as the .i and Rakefile)

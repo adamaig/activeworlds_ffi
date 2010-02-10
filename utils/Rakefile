@@ -1,0 +1,29 @@
+require 'rubygems'
+require 'ffi-swig-generator'
+
+module FFI
+  module Generator
+    class Enum < Node
+      alias :to_constants :to_s
+      def to_s
+        constants = to_constants
+        enum_hsh = @items.sort { |i1, i2| i1[1] <=> i2[1] }.inject("#{@symname}_ENUM = {\n") do |result, item|
+          result << enum_hash_line(item[0], item[1])
+        end + @indent_str + "}\n"
+        # new ffi 0.5+ style enums
+        enum_syms = @items.sort { |i1, i2| i1[1] <=> i2[1] }.inject("#{@indent_str}enum :#{@symname}, [\n") do |result, item|
+          result << "#{@indent_str}:#{item[0]}, #{item[1]}\n"
+        end + @indent_str + "]\n"
+        return to_constants + "\n#{@indent_str}" + enum_hsh + enum_syms
+      end
+      def enum_hash_line(name, value)
+        @indent_str + "  :#{name} => #{value},\n"
+      end
+    end
+  end
+end
+
+FFI::Generator::Task.new do |task|
+  task.input_fn = '*.i'
+  task.output_dir = './'
+end

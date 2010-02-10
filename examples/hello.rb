@@ -49,7 +49,7 @@ if rc != RC_SUCCESS
 end
   
 # log bot into the world named on the command line 
-rc = aw_enter (ARGV[2]);
+rc = aw_enter( ARGV[2] );
 if (rc != RC_SUCCESS)
   printf("Unable to enter world (reason %d)\n", rc)
   exit(1)
@@ -66,7 +66,8 @@ if rc != RC_SUCCESS
 end
   
 #  /* main event loop */
-while aw_wait(-1) == RC_SUCCESS
+while aw_wait(1000) == RC_SUCCESS
+  # do work
 end
   
 #  /* close everything down */
